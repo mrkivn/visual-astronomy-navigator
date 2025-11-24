@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+.nasa-section {
+    position: relative;
+    z-index: 10;
+    padding: 4rem 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.nasa-section.hero {
+    background: transparent;
+    backdrop-filter: none;
+    min-height: auto;
+    padding: 0;
+    height: 100%;
+}
+
+.nasa-content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.nasa-section.hero .nasa-content {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nasa-content h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    /* Removed gradient as requested */
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-title {
+    font-size: 2rem !important;
+    margin-bottom: 1rem !important;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #fff;
+}
+
+.date-picker-container {
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.custom-date-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+}
+
+.custom-date-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.date-picker-container input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.date-picker-container input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.media-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.3s ease;
+}
+
+.nasa-section.hero .media-container {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    margin: 0;
+    /* Reset margin for layout control */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: row;
+    /* Side by side image and description */
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    /* Allow wider container for side-by-side */
+}
+
+.media-container:hover {
+    transform: translateY(-5px);
+}
+
+.nasa-media {
+    max-width: 100%;
+    max-height: 60vh;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.nasa-section.hero .nasa-media {
+    max-height: 60vh;
+    /* Increased size as requested */
+    margin-bottom: 0;
+    flex: 2;
+    /* Image takes more space */
+}
+
+.info h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.nasa-section.hero .info h3 {
+    display: none;
+    /* Hide title inside info since we have it above */
+}
+
+.hero-description {
+    flex: 1;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+/* Custom scrollbar for description */
+.hero-description::-webkit-scrollbar {
+    width: 6px;
+}
+
+.hero-description::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hero-description::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.info .date {
+    color: #aaa;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.info .explanation {
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.loading,
+.error,
+.empty-state {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    color: #aaa;
+}
+
+.error {
+    color: #ff6b6b;
+}
