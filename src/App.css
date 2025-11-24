@@ -1,42 +1,178 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* App Container */
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: #000;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Particles Container */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 0 2%;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+/* Hero Left Side (Title) */
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  pointer-events: auto;
+}
+
+.van-title {
+  font-size: 8rem;
+  margin-bottom: 0;
+  font-weight: bold;
+  letter-spacing: 10px;
+  line-height: 1;
+  color: #fff;
+}
+
+.van-subtitle {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: #aaa;
+  margin-top: 1rem;
+}
+
+.scroll-indicator {
+  margin-top: 3rem;
+  animation: bounce 2s infinite;
+}
+
+/* Hero Right Side (NASA Content) */
+.hero-right {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  pointer-events: auto;
+  width: 100%;
+}
+
+/* Birthday Section */
+.birthday-section {
+  font-size: 5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  padding-bottom: 4rem;
+  padding-top: 4rem;
+}
+
+.birthday-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #fff;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
+/* Footer */
+.app-footer {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
   color: #888;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.9);
+  pointer-events: auto;
+}
+
+/* Animations */
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column;
+    padding: 6rem 1rem 2rem;
+    height: auto;
+    gap: 3rem;
+  }
+
+  .hero-left {
+    align-items: center;
+    text-align: center;
+    flex: none;
+    width: 100%;
+  }
+
+  .van-title {
+    font-size: 5rem;
+    letter-spacing: 5px;
+  }
+
+  .van-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero-right {
+    flex: none;
+    height: auto;
+  }
+
+  .birthday-title {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .van-title {
+    font-size: 4rem;
+  }
+
+  .hero-section {
+    padding-top: 8rem;
+  }
 }

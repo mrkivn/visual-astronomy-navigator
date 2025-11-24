@@ -1,46 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
-
-.nasa-section {
-    position: relative;
-    z-index: 10;
-    padding: 4rem 2rem;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-family: 'Rajdhani', sans-serif;
-}
-
 .nasa-section.hero {
     background: transparent;
-    backdrop-filter: none;
-    min-height: auto;
-    padding: 0;
-    height: 100%;
-}
-
-.nasa-content {
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
-}
-
-.nasa-section.hero .nasa-content {
-    max-width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.nasa-section.hero .nasa-controls,
+.nasa-section.hero .nasa-display {
+    width: 100%;
+    flex: auto;
     align-items: center;
 }
 
 .nasa-content h2 {
     font-size: 3rem;
     margin-bottom: 2rem;
-    /* Removed gradient as requested */
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -109,21 +85,19 @@
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     border: 1px solid rgba(255, 255, 255, 0.18);
     transition: transform 0.3s ease;
+    width: 100%;
 }
 
 .nasa-section.hero .media-container {
     background: rgba(0, 0, 0, 0.3);
     padding: 1rem;
     margin: 0;
-    /* Reset margin for layout control */
     border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: row;
-    /* Side by side image and description */
     align-items: center;
     gap: 2rem;
     max-width: 1200px;
-    /* Allow wider container for side-by-side */
 }
 
 .media-container:hover {
@@ -140,10 +114,8 @@
 
 .nasa-section.hero .nasa-media {
     max-height: 60vh;
-    /* Increased size as requested */
     margin-bottom: 0;
     flex: 2;
-    /* Image takes more space */
 }
 
 .info h3 {
@@ -153,7 +125,6 @@
 
 .nasa-section.hero .info h3 {
     display: none;
-    /* Hide title inside info since we have it above */
 }
 
 .hero-description {
@@ -201,4 +172,45 @@
 
 .error {
     color: #ff6b6b;
+}
+
+@media (max-width: 1024px) {
+    .nasa-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .nasa-controls {
+        align-items: center;
+        width: 100%;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    .nasa-section.hero .media-container {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 1rem;
+    }
+
+    .nasa-section.hero .nasa-media {
+        max-height: 40vh;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .hero-description {
+        max-height: none;
+        overflow-y: visible;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .nasa-content h2 {
+        font-size: 2rem;
+    }
 }

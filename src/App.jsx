@@ -4,6 +4,7 @@ import NasaSection from './components/NasaSection/NasaSection';
 import PillNav from './components/PillNav/PillNav';
 import BlurText from './components/BlurText/BlurText';
 import logo from './assets/van-logo.svg';
+import './App.css';
 
 function App() {
   const today = new Date().toISOString().split("T")[0];
@@ -14,8 +15,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div style={{ width: '100%', minHeight: '100vh', position: 'relative', backgroundColor: '#000', fontFamily: "'Rajdhani', sans-serif" }}>
-        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+      <div className="app-container">
+        <div className="particles-container">
           <Particles
             particleColors={['#ffffff', '#ffffff']}
             particleCount={200}
@@ -32,7 +33,7 @@ function App() {
           logo={logo}
           logoAlt="VAN Logo"
           items={[
-            { label: 'Home', href: '/' },
+            { label: 'Home', href: '#hero' },
             { label: 'Time Travel', href: '#cosmos' }
           ]}
           activeHref="/"
@@ -43,68 +44,54 @@ function App() {
           pillTextColor="#000"
         />
 
-        <div style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}>
+        <div className="content-wrapper">
           {/* Hero Section */}
-          <div
-            style={{
-              height: '100vh',
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-              color: 'white',
-              padding: '0 2%',
-              gap: '2rem'
-            }}
-          >
+          <div id="hero" className="hero-section">
             {/* Left Side: Title & Acronym */}
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', textAlign: 'left', pointerEvents: 'auto' }}>
+            <div className="hero-left">
               <BlurText
                 text="VAN"
                 delay={150}
                 animateBy="words"
                 direction="top"
                 onAnimationComplete={handleAnimationComplete}
-                className="text-2xl mb-8"
-                style={{ fontSize: '8rem', marginBottom: '0', fontWeight: 'bold', letterSpacing: '10px', lineHeight: '1', color: '#fff' }}
+                className="text-2xl mb-8 van-title"
+                style={{}} // Style moved to CSS class .van-title, but BlurText might need style prop reset if it merges
               />
-              <p style={{ fontSize: '1.5rem', letterSpacing: '2px', color: '#aaa', marginTop: '1rem' }}>Visual Astronomy Navigator</p>
-              <div style={{ marginTop: '3rem', animation: 'bounce 2s infinite' }}>
+              <p className="van-subtitle">Visual Astronomy Navigator</p>
+              <div className="scroll-indicator">
                 ↓ Scroll for Birthday Picture
               </div>
             </div>
 
             {/* Center & Right: APOD Hero (Image + Description) */}
             {/* NasaSection handles the layout for Image + Description in 'hero' mode via CSS */}
-            <div style={{ flex: 3, display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', pointerEvents: 'auto' }}>
+            <div className="hero-right">
               <NasaSection displayMode="hero" enableDatePicker={false} initialDate={today} className="hero-nasa" />
             </div>
           </div>
 
           {/* Birthday Section */}
-          <div id="cosmos" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: 'rgba(0,0,0,0.8)', pointerEvents: 'auto', paddingBottom: '4rem' }}>
-            <BlurText
-              text="Your Birthday Cosmos"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              onAnimationComplete={handleAnimationComplete}
-              className="text-2xl mb-8"
-              style={{ fontSize: '3rem', marginBottom: '2rem', color: '#fff' }}
+          <div id="cosmos" className="birthday-section">
+            <NasaSection
+              displayMode="full"
+              enableDatePicker={true}
+              initialDate=""
+              customTitle={
+                <BlurText
+                  text="Your Birthday Cosmos"
+                  delay={150}
+                  animateBy="words"
+                  direction="top"
+                  onAnimationComplete={handleAnimationComplete}
+                  className="birthday-title-text"
+                />
+              }
             />
-            <NasaSection displayMode="full" enableDatePicker={true} initialDate="" />
           </div>
 
           {/* Footer */}
-          <footer style={{
-            width: '100%',
-            padding: '2rem',
-            textAlign: 'center',
-            color: '#888',
-            fontSize: '0.9rem',
-            background: 'rgba(0,0,0,0.9)',
-            pointerEvents: 'auto'
-          }}>
+          <footer className="app-footer">
             <p>&copy; {new Date().getFullYear()} Marck Ivan Deala. All rights reserved.</p>
           </footer>
         </div>
