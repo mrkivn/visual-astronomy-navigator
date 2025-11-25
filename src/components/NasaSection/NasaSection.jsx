@@ -91,7 +91,7 @@ const NasaSection = ({
                             enableTilt={true}
                             enableParticles={true}
                             enableMagnetism={true}
-                            clickEffect={true}
+                            clickEffect={false}
                             particleCount={15}
                             glowColor="132, 0, 255"
                         >

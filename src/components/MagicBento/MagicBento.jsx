@@ -267,8 +267,9 @@ const ParticleCard = ({
         height: ${maxDistance * 2}px;
         border-radius: 50%;
         background: radial-gradient(circle, rgba(${glowColor}, 0.4) 0%, rgba(${glowColor}, 0.2) 30%, transparent 70%);
-        left: ${x - maxDistance}px;
-        top: ${y - maxDistance}px;
+        left: ${x}px;
+        top: ${y}px;
+        transform: translate(-50%, -50%);
         pointer-events: none;
         z-index: 1000;
       `;
@@ -480,7 +481,7 @@ const MagicBento = ({
     particleCount = DEFAULT_PARTICLE_COUNT,
     enableTilt = false,
     glowColor = DEFAULT_GLOW_COLOR,
-    clickEffect = true,
+    clickEffect = false,
     enableMagnetism = true
 }) => {
     const gridRef = useRef(null);
@@ -616,8 +617,9 @@ const MagicBento = ({
                     height: ${maxDistance * 2}px;
                     border-radius: 50%;
                     background: radial-gradient(circle, rgba(${glowColor}, 0.4) 0%, rgba(${glowColor}, 0.2) 30%, transparent 70%);
-                    left: ${x - maxDistance}px;
-                    top: ${y - maxDistance}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    transform: translate(-50%, -50%);
                     pointer-events: none;
                     z-index: 1000;
                   `;
