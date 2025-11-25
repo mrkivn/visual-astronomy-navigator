@@ -3,6 +3,7 @@ import Particles from './components/Particles/Particles';
 import NasaSection from './components/NasaSection/NasaSection';
 import PillNav from './components/PillNav/PillNav';
 import BlurText from './components/BlurText/BlurText';
+import GradualBlur from './components/GradualBlur/GradualBlur';
 import logo from './assets/van-logo.svg';
 import './App.css';
 
@@ -60,7 +61,7 @@ function App() {
               />
               <p className="van-subtitle">Visual Astronomy Navigator</p>
               <div className="scroll-indicator">
-                ↓ Scroll for Birthday Picture
+                ↓ Scroll for Birthday Cosmos
               </div>
             </div>
 
@@ -70,6 +71,28 @@ function App() {
               <NasaSection displayMode="hero" enableDatePicker={false} initialDate={today} className="hero-nasa" />
             </div>
           </div>
+
+          <GradualBlur
+            position="bottom"
+            height="6rem"
+            strength={2}
+            divCount={5}
+            curve="bezier"
+            exponential={true}
+            opacity={1}
+            target="page"
+          />
+
+          <GradualBlur
+            position="top"
+            height="6rem"
+            strength={2}
+            divCount={5}
+            curve="bezier"
+            exponential={true}
+            opacity={1}
+            target="page"
+          />
 
           {/* Birthday Section */}
           <div id="cosmos" className="birthday-section">
