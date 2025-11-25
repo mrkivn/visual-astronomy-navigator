@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import MediaContainerWrapper from '../MediaContainerWrapper/MediaContainerWrapper';
 import './NasaSection.css';
 
 const API_KEY = 'mEKZWwS5LqebTLEuq1DunieYsVcFXYcgUGEF008n';
@@ -85,7 +86,15 @@ const NasaSection = ({
                     {error && <div className="error">Error: {error}</div>}
 
                     {!loading && !error && photoData && (
-                        <div className="media-container">
+                        <MediaContainerWrapper
+                            className="media-container"
+                            enableTilt={true}
+                            enableParticles={true}
+                            enableMagnetism={true}
+                            clickEffect={true}
+                            particleCount={15}
+                            glowColor="132, 0, 255"
+                        >
                             {photoData.media_type === 'image' ? (
                                 <img src={photoData.url} alt={photoData.title} className="nasa-media" />
                             ) : (
@@ -114,7 +123,7 @@ const NasaSection = ({
                                     </>
                                 )}
                             </div>
-                        </div>
+                        </MediaContainerWrapper>
                     )}
                 </div>
             </div>

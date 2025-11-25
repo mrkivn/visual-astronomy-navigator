@@ -269,6 +269,39 @@
     border-radius: 3px;
 }
 
+/* --- Media Container Wrapper Effects --- */
+.media-container-wrapper {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+}
+
+.media-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.media-particle::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: rgba(132, 0, 255, 0.2);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.media-container-wrapper:hover {
+    box-shadow:
+        0 4px 20px rgba(46, 24, 78, 0.2),
+        0 0 30px rgba(132, 0, 255, 0.2);
+}
 
 /* --- RESPONSIVE DESIGN (Mobile/Tablet) --- */
 @media (max-width: 1024px) {
