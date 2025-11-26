@@ -67,7 +67,7 @@ const WelcomeScreen = ({ onEnter }) => {
                     animateBy="words"
                     direction="top"
                     className="mb-8 text-white font-bold"
-                    style={{ fontSize: 'clamp(3rem, 10vw, 6rem)', lineHeight: 1, fontFamily: '"Orbitron", sans-serif', letterSpacing: '0.1em' }}
+                    style={{ fontSize: 'clamp(3rem, 10vw, 6rem)', lineHeight: 1, fontFamily: '"Orbitron", sans-serif', letterSpacing: '0.1em', justifyContent: 'center' }}
                 />
             </div>
         </div>
