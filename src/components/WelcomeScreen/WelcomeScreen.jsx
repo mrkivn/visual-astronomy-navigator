@@ -44,7 +44,7 @@ const WelcomeScreen = ({ onEnter }) => {
                     squareSize={40}
                     direction='diagonal'
                     borderColor='#fff'
-                    hoverFillColor='#222'
+                    hoverFillColor='#fff'
                 />
             </div>
 

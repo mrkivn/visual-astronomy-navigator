@@ -202,7 +202,7 @@
 
 .mobile-menu-popover {
     position: absolute;
-    top: 3em;
+    top: 5em;
     left: 1rem;
     right: 1rem;
     background: var(--base, #f0f0f0);
@@ -220,7 +220,7 @@
     padding: 3px;
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 8px;
 }
 
 .mobile-menu-popover .mobile-menu-link {
