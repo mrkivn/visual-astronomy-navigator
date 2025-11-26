@@ -1,14 +1,17 @@
+import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Particles from './components/Particles/Particles';
 import NasaSection from './components/NasaSection/NasaSection';
 import PillNav from './components/PillNav/PillNav';
 import BlurText from './components/BlurText/BlurText';
 import GradualBlur from './components/GradualBlur/GradualBlur';
+import WelcomeScreen from './components/WelcomeScreen/WelcomeScreen';
 import logo from './assets/van-logo.svg';
 import './App.css';
 
 function App() {
   const today = new Date().toISOString().split("T")[0];
+  const [showWelcome, setShowWelcome] = useState(true);
 
   const handleAnimationComplete = () => {
     console.log('Animation completed!');
@@ -16,6 +19,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      {showWelcome && <WelcomeScreen onEnter={() => setShowWelcome(false)} />}
       <div className="app-container">
         <div className="particles-container">
           <Particles
