@@ -14,7 +14,6 @@ gsap.registerPlugin(ScrollTrigger);
  * @param {React.ReactNode} props.children - Content to wrap
  * @param {number} props.lerp - Smoothness factor (0-1, lower = smoother, default: 0.1)
  * @param {number} props.duration - Duration of scroll animation (default: 1.2)
- * @param {string} props.easing - Easing function (default: 'easeOutExpo')
  * @param {boolean} props.smoothWheel - Enable smooth wheel scrolling (default: true)
  */
 function SmoothScroll({
@@ -49,18 +48,35 @@ function SmoothScroll({
         // Disable GSAP's default lag smoothing for best performance
         gsap.ticker.lagSmoothing(0);
 
+        // Handle anchor link clicks for smooth scrolling
+        const handleAnchorClick = (e) => {
+            const target = e.target.closest('a[href^="#"]');
+            if (target) {
+                e.preventDefault();
+                const targetId = target.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    lenis.scrollTo(targetElement, {
+                        offset: 0,
+                        duration: 1.5,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+                    });
+                }
+            }
+        };
+
+        document.addEventListener('click', handleAnchorClick);
+
+        // Make lenis available globally
+        window.lenis = lenis;
+
         // Cleanup on unmount
         return () => {
+            document.removeEventListener('click', handleAnchorClick);
             lenis.destroy();
             gsap.ticker.remove(lenis.raf);
         };
     }, [lerp, duration, smoothWheel]);
-
-    // Expose lenis instance for external control if needed
-    useEffect(() => {
-        // Make lenis available globally for debugging/external access
-        window.lenis = lenisRef.current;
-    }, []);
 
     return <>{children}</>;
 }
